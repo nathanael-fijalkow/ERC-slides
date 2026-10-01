@@ -368,7 +368,7 @@ table {
     height: 2000px;
     transform: translate(-50%, -50%);
 
-    background: url('../img/screenshots/background.png') no-repeat center center;
+    /* background: url('../img/screenshots/background.png') no-repeat center center; */
     background-size: cover;
     opacity: .04;
     z-index: -1;
