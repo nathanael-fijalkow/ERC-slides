@@ -1,0 +1,447 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <title>LOGOS ERC Interview</title>
+
+    <meta name="description" content="LOGOS ERC Interview" />
+    <meta name="author" content="Nathanaël Fijalkow" />
+
+    <link href="css/fonts.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="flides">
+    <!-- <div id="canvas-bg"></div> -->
+
+    <!-- Part 1: Neuro-symbolic synthesis -->
+    <div class="part" data-x="0" data-y="0">
+
+        <div id="title" class="step" data-duration="0" data-x="500" data-y="200">
+            <h2>LOGOS</h2>
+
+            <h3><orange>Logic</orange> and <red>Games</red> for <br/><green>Correct</green> and <mauve>Scalable</mauve> <blue>Synthesis</blue></h3>
+            <br/>
+
+            <h4>Nathanaël Fijalkow &mdash; CNRS, LaBRI, University of Bordeaux</h4>
+        </div>
+
+        <div id="synthesis" class="step" data-x="500" data-y="600" data-scale="1">
+            <img src="img/synthesis.png"/>
+        </div>
+
+        <div id="impact" class="step" data-x="500" data-y="1050">
+            <div class="row">
+                <div>
+                    <div class="box blue small" data-label="Avionics">
+                    Generate certified code for physics-based simulations.
+                    </div>
+                    <br/>
+                    <br/>
+                    <center><img src="img/neuro-symbolic-synthesis.png" width="100%"></center> 
+                </div>
+                <div>
+                    <div class="box blue small" data-label="Robotics">
+                    Write a controller for a robot ensuring safety constraints.
+                    </div>
+                    <br/>
+                    <br/>
+                    <center><img src="img/reactive-synthesis.png" width="100%"></center>
+                </div>
+                <div>
+                    <div class="box blue small" data-label="Cybersecurity">
+                    Detect security vulnerabilities in code.
+                    </div>
+                    <br/>
+                    <br/>
+                    <center><img src="img/logic-synthesis.png" width="100%"></center> 
+                </div>
+            </div>
+
+        </div>
+
+        <div id="scalable-correct" class="step" data-x="500" data-y="1500">
+            <div class="row picture-row">
+                <div class="small">
+                <blue>Neural methods</blue> (neural networks, large language models) are <mauve>scalable</mauve>: they can handle large and complex specifications (although with <u>enormous compute</u>!)
+                </div>
+                <div class="image-box">
+                    <img src="img/1.png">
+                </div>
+            </div>
+
+            <div class="row picture-row slide_step">
+                <div class="small">
+                <red>Symbolic methods</red> (logic) are <green>correct</green>: they guarantee that the synthesized program satisfies the specification.
+                </div>
+                <div class="image-box">
+                    <img src="img/2.png">
+                </div>
+            </div>
+
+            <div class="row picture-row slide_step">
+                <div class="highlight">
+                We need both <green>correct</green> and <mauve>scalable</mauve>: <br/><b>neuro-symbolic methods</b>!
+                </div>
+                <div class="image-box">
+                    <img src="img/3.png">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <div id="scalable-correct" class="step" data-x="1500" data-y="1500">
+        <div class="box red" data-label="The two worlds">
+            <ul>
+            <li><red>Symbolic methods</red> (logic) are <green>correct</green>: they guarantee that the synthesized program satisfies the specification. Critical <b>scaling</b> issues!</li>
+            <li><blue>Neural methods</blue> (deep learning, large language models) are <mauve>scalable</mauve>: they can handle large and complex specifications. Critical <b>correctness</b> issues!</li>
+            </ul>
+        </div>
+
+        <div class="slide_step">
+            <h3>We need both <green>correct</green> and <mauve>scalable</mauve>: <br/><b>neuro-symbolic methods</b>!</h3>
+        </div>
+
+        <br/>
+        <div class="slide_step small">
+            Related recent aspect (e.g. Navier-Stokes results): enormous <b>compute budget</b>.
+        </div>
+    </div> -->
+
+    <div id="overview_intermediate" class="step unclickable" data-x="1500" data-y="900" data-scale="3">
+    </div>
+
+<!-- Part 2: Reactive synthesis -->
+    <div class="part" data-x="1500" data-y="400">
+
+        <div id="reactive-synthesis" class="step" data-fixed="1" data-x="0" data-y="0" data-scale=".8">
+            <h2>Reactive synthesis</h2>
+        </div>
+
+        <div id="reactive-synthesis-def" class="step" data-x="-250" data-y="200" data-scale=".5">
+            <div class="row">
+                <img src="img/taxi-slow.gif" width="50%"/>
+                <div>
+                    <img src="img/reactive-synthesis.png"/>
+                    <br/>
+                    <u>Example specification</u>: 
+                    <br/> "If the passenger changes their mind, the taxi still delivers them". 
+                </div>
+            </div>
+
+        </div>
+
+        <div id="reactive-synthesis-games" class="step" data-x="250" data-y="200" data-scale=".5">
+            <div class="row">
+                <img src="img/book.jpg" width="40%" />
+                <div>
+                    Reactive synthesis is often cast as a <blue>game</blue> between the <green>controller</green> and the <red>environment</red>.
+                    <br/><br/>
+                    <img src="img/taxi-graph.png"/>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div id="reactive-synthesis-open-problems" class="step" data-x="200" data-y="500" data-scale=".5">
+            <h3>Understanding the landscape</h3>
+
+            <br/>
+            Different orthogonal directions:
+            <ul>
+                <li>Complexity of the specification.</li>
+                <li>Full or partial information of the system.</li>
+                <li>Average versus worse-case scenarios (stochastic or adversarial).</li>
+            </ul>
+            <br/>
+            This yields different game models, extending each other.
+        </div> -->
+
+        <div id="reactive-synthesis-parity-games" class="step" data-x="-250" data-y="500" data-scale=".5">
+            <div class="box red small" data-label="Open problem">
+            Since 1991: complexity of solving parity games <red>(= reactive synthesis with complex specifications)</red>. Quasipolynomial barrier for <green>discrete</green> algorithms (SODA 2019).
+            </div>
+            <br/>
+            <div class="box mauve slide_step small" data-label="Objective">
+            Solve parity games in polynomial time.
+            </div>
+            <br/>
+            <div class="box blue slide_step small" data-label="Disruptive idea">
+            Efficiently explore the exponential space of strategies using <u>continuous optimization</u> (interior-point methods).
+            </div>
+            <br/>
+            <div class="box green slide_step small" data-label="Impact">
+            Resolves a 30+ year old open problem in TCS and scales reactive synthesis for complex specifications.
+            </div>
+        </div>
+
+        <div id="reactive-synthesis-pomdps" class="step" data-x="250" data-y="500" data-scale=".5">
+            <div class="box red small" data-label="Open problem">
+                Construct algorithms for POMDPs <red>(= reactive synthesis under partial observation)</red>.
+            </div>
+            <br/>
+            <div class="box mauve slide_step small" data-label="Objective">
+                Build the first practical <b>exact</b> (not statistical) algorithms for POMDPs.
+            </div>
+            <br/>
+            <div class="box blue slide_step small" data-label="Disruptive idea">
+                Our recent breakthrough decidability result (AAAI 2025 Outstanding Paper Award) introduced a new <u>information-theoretic</u> lens.
+            </div>
+            <br/>
+            <div class="box green slide_step small" data-label="Impact">
+                <b>Many applications</b>: aircraft collision avoidance, autonomous driving, robot navigation, infrastructure inspection and maintenance...
+            </div>
+        </div>
+
+        <!-- <div id="reactive-synthesis-impact" class="step" data-x="250" data-y="800" data-scale=".5">
+            <h2>Impact</h2>
+            <br/>
+            <div class="box blue" data-label="Robotics">
+            <ul>
+                <li><red>Today</red>: robot controllers are hand-coded or learned, and then tested.</li>
+                <li><green>With LOGOS</green>: synthesize the controller from the specifications in imperfect-information scenarios.</li>
+                <li><blue>Correctness matters</blue>: mathematical guarantees on specifications</li>
+            </ul>
+            </div>
+        </div> -->
+
+    </div>
+
+    <div id="overview_intermediate" class="step unclickable" data-x="1500" data-y="900" data-scale="3">
+    </div>
+
+<!-- Part 3: Logic synthesis -->
+    <div class="part" data-x="2400" data-y="400">
+
+        <div id="logic-synthesis" class="step" data-fixed="1" data-x="0" data-y="0" data-scale=".8">
+            <h2>Logic synthesis</h2>
+        </div>
+
+        <div id="logic-synthesis-def" class="step" data-x="-200" data-y="200" data-scale=".5">
+            <div class="row">
+                <img src="img/logic-synthesis.png" width="50%"/>
+                <div>
+                    <img src="img/classification.png">
+                </div>
+            </div>
+        </div>
+
+        <div id="logic-synthesis-parallel" class="step" data-x="250" data-y="200" data-scale=".5">
+            <h3>The disruptive approach:<br/> GPU accelerated logic synthesis</h3>
+
+            <div class="row">
+                <ul>
+                    <li>Logic synthesis is a <blue>combinatorial search problem</blue>: we need to explore the very large space of logical formulas.</li>
+                    <li>Combinatorial search problems are "<green>embarassingly parallel</green>": search branches are independent of each other.</li>
+                </ul>
+                <div>
+                    <img src="img/search.png" width="50%">
+                </div>
+            </div>
+
+            <div class="slide_step">
+            Graphics Processing Units (<red>GPUs</red>) are <u>massively parallel architectures</u>.
+            They revolutionized deep learning and scientific computing.
+            </div>
+            <!-- <div class="row">
+                <img src="img/collage.png" width="70%" />
+                <div>
+                </div>
+            </div> -->
+        </div>
+
+        <div id="logic-synthesis-challenges" class="step" data-x="-200" data-y="500" data-scale=".5">
+            We obtained significant improvements using GPU acceleration in <b>simple</b> logic synthesis domains (CAV 2024, TACAS 2026, NeurIPS 2026).
+            <br/>            
+            <br/>            
+            LOGOS targets <red>three new directions</red>:
+            <ul>
+                <li><green>Recursive</green> formulas, with applications to hardware optimization</li>
+                <li><green>Quantitative</green> formulas, with applications to cyber-physical systems</li>
+                <li><green>More expressive</green> formalisms, with applications to cybersecurity</li>
+            </ul>
+            <!-- <center>
+            <img src="img/logic-cube.png">
+            </center> -->
+        </div>
+
+        <div id="logic-synthesis-impact" class="step" data-x="250" data-y="500" data-scale=".5">
+            <div class="box red small" data-label="Open problem">
+                Scale logic synthesis to industrial-size problems.
+            </div>
+            <br/>
+            <div class="box mauve slide_step small" data-label="Objective">
+                We target 10x improvements on three challenging benchmarks corresponding to the three new directions.
+            </div>
+            <br/>
+            <div class="box blue slide_step small" data-label="Disruptive idea">
+                Develop new algorithms taking advantage of <u>GPU acceleration</u>.
+            </div>
+            <br/>
+            <div class="box green slide_step small" data-label="Impact">
+                Scale logic synthesis in three application domains: hardware optimization, cyber-physical systems, and cybersecurity.
+            </div>
+        </div>
+
+    </div>
+
+    <div id="overview_intermediate" class="step unclickable" data-x="1500" data-y="900" data-scale="3">
+    </div>
+
+    <div id="final" class="step" data-x="2000" data-y="1400">  
+        <img src="img/final_generated.jpeg" width="90%">
+        <red>Reactive synthesis</red> controls the feedback loop.
+        <br/><blue>Logic synthesis</blue> builds the symbolic component.
+    </div>
+    
+    <!-- Backup slides: not part of the normal flow (data-fixed="1", so
+         'right'/'left' navigation skips them), reachable only via the
+         corner links below (see #backup-links) or a direct #id link. -->
+    <div class="part" data-x="1500" data-y="2000">
+
+        <div id="budget" class="step" data-fixed="1" data-x="-700" data-y="0" data-scale=".5">
+            <h3>Budget &mdash; beyond personnel</h3>
+            <br/>
+
+            <div class="box orange small" data-label="Travel &mdash; &euro;102K">
+            <ul>
+                <li>Presenting results at conferences: &euro;52K</li>
+                <li>Invited expert missions &amp; visits: &euro;25K</li>
+                <li>Dagstuhl-style brainstorming retreat with experts: &euro;25K</li>
+            </ul>
+            </div>
+            <br/>
+            <div class="box mauve small" data-label="Dissemination &mdash; &euro;25K">
+            One dedicated workshop (venue &amp; catering) to gather the community around LOGOS' results.
+            </div>
+            <br/>
+            <div class="box blue small" data-label="Equipment &mdash; &euro;9K">
+            Two GPU compute workstations for the team.
+            </div>
+        </div>
+
+        <div id="gantt" class="step" data-fixed="1" data-x="0" data-y="0" data-scale=".5">
+            <h3>Timeline &amp; hires</h3>
+            <br/>
+
+            <svg viewBox="0 0 840 290" width="100%">
+                <!-- year gridlines -->
+                <line x1="190" y1="34" x2="190" y2="376" stroke="#ddd" stroke-width="1" />
+                <line x1="310" y1="34" x2="310" y2="376" stroke="#ddd" stroke-width="1" />
+                <line x1="430" y1="34" x2="430" y2="376" stroke="#ddd" stroke-width="1" />
+                <line x1="550" y1="34" x2="550" y2="376" stroke="#ddd" stroke-width="1" />
+                <line x1="670" y1="34" x2="670" y2="376" stroke="#ddd" stroke-width="1" />
+                <line x1="790" y1="34" x2="790" y2="376" stroke="#ddd" stroke-width="1" />
+
+                <!-- year labels -->
+                <text x="250" y="24" text-anchor="middle" font-family="PT Sans, sans-serif" font-size="15" fill="#555">Year 1</text>
+                <text x="370" y="24" text-anchor="middle" font-family="PT Sans, sans-serif" font-size="15" fill="#555">Year 2</text>
+                <text x="490" y="24" text-anchor="middle" font-family="PT Sans, sans-serif" font-size="15" fill="#555">Year 3</text>
+                <text x="610" y="24" text-anchor="middle" font-family="PT Sans, sans-serif" font-size="15" fill="#555">Year 4</text>
+                <text x="730" y="24" text-anchor="middle" font-family="PT Sans, sans-serif" font-size="15" fill="#555">Year 5</text>
+
+                <!-- PhD student -->
+                <text x="180" y="67" text-anchor="end" font-family="PT Sans, sans-serif" font-size="15" fill="#333">PhD student &middot; Pillar 1</text>
+                <rect x="190" y="50" width="360" height="24" rx="6" fill="rgba(0,0,255,0.15)" stroke="blue" stroke-width="2" />
+                <text x="560" y="67" font-family="PT Sans, sans-serif" font-size="14" fill="blue">36 mo</text>
+
+                <!-- postdoc, pillar 1 -->
+                <text x="180" y="117" text-anchor="end" font-family="PT Sans, sans-serif" font-size="15" fill="#333">Postdoc &middot; Pillar 1</text>
+                <rect x="190" y="100" width="360" height="24" rx="6" fill="rgba(0,128,0,0.15)" stroke="green" stroke-width="2" />
+                <text x="560" y="117" font-family="PT Sans, sans-serif" font-size="14" fill="green">36 mo</text>
+
+                <!-- postdoc, pillar 2 -->
+                <text x="180" y="167" text-anchor="end" font-family="PT Sans, sans-serif" font-size="15" fill="#333">Postdoc &middot; Pillar 2</text>
+                <rect x="310" y="150" width="360" height="24" rx="6" fill="rgba(255,0,0,0.12)" stroke="red" stroke-width="2" />
+                <text x="680" y="167" font-family="PT Sans, sans-serif" font-size="14" fill="red">36 mo</text>
+
+                <!-- research engineer -->
+                <text x="190" y="217" text-anchor="end" font-family="PT Sans, sans-serif" font-size="15" fill="#333">Research engineer &middot; Pillar 2/3</text>
+                <rect x="430" y="200" width="360" height="24" rx="6" fill="rgba(255,165,0,0.18)" stroke="orange" stroke-width="2" />
+                <text x="800" y="217" font-family="PT Sans, sans-serif" font-size="14" fill="orange">36 mo</text>
+
+                <!-- postdoc, pillar 3 -->
+                <text x="180" y="267" text-anchor="end" font-family="PT Sans, sans-serif" font-size="15" fill="#333">Postdoc &middot; Pillar 3</text>
+                <rect x="550" y="250" width="240" height="24" rx="6" fill="rgba(224,176,255,0.35)" stroke="#E0B0FF" stroke-width="2" />
+                <text x="800" y="267" font-family="PT Sans, sans-serif" font-size="14" fill="#9b6fc4">24 mo</text>
+            </svg>
+            <br/>
+            <center class="small">Track record: 6 PhD students (all defended) &middot; 5 postdocs &middot; 3 research engineers &middot; 23 interns.</center>
+        </div>
+
+        <div id="cv" class="step" data-fixed="1" data-x="700" data-y="0" data-scale=".5">
+            <h3>Why me?</h3>
+
+            <div class="box red small" data-label="Pillar 1 &mdash; Reactive synthesis">
+                <ul>
+                    <li>SODA 2019: quasi-polynomial lower bound for parity games</li>
+                    <li>AAAI 2025 Outstanding Paper Award: information-theoretic POMDPs</li>
+                    <li>Cambridge University Press 2026: coordinated and coauthored the textbook <i>Games on Graphs</i></li>
+                </ul>
+            </div>
+            <br/>
+            <div class="box green small" data-label="Pillar 2 &mdash; GPU accelerated logic synthesis">
+                <ul>
+                    <li>CAV 2024: LTL learning on GPUs</li>
+                    <li>NeurIPS 2026: Mixed-boolean Arithmetic on GPUs</li>
+                </ul>
+            </div>
+            <br/>
+            <div class="box blue small" data-label="Pillar 3 &mdash; Neuro-symbolic and reinforcement learning">
+                <ul>
+                    <li>AAAI 2022: DeepSynth, a founding neuro-symbolic architecture</li>
+                    <li>2024: Technical Lead LLM for a Google.org-funded project</li>
+                    <li>2025: BordAX, a JAX-based reinforcement learning framework</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="arc" class="step" data-fixed="1" data-x="1400" data-y="0" data-scale=".5">
+            <h3>Abstraction and Reasoning Challenge (ARC)</h3>
+            <br/>
+            <div class="row">
+                <img src="img/arc.png" width="50%" />
+                <div>
+                    <ul>
+                        <li>Frontier LLMs solve them using <b>massive</b> compute.</li>
+                        <li>Endowed with <b>$2 million</b> prize to incentivize breakthroughs.</li>
+                    </ul>
+                    <div class="box green small" data-label="Objective">
+                    LOGOS' neuro-symbolic engine (Pillar 3) targets the <b>top position on the ARC-AGI leaderboard</b>.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="overview" class="step" data-duration="0" data-x="1500" data-y="900" data-scale="3">
+    </div>
+
+</div>
+
+<div id="backup-links">
+    <a href="#budget">Budget</a>
+    <a href="#gantt">Timeline &amp; hires</a>
+    <a href="#cv">Why me?</a>
+    <a href="#arc">ARC</a>
+</div>
+
+<script src="js/flides.js"></script>
+<script>flides().init();</script>
+
+<script>
+MathJax = {
+  tex: {inlineMath: [['$','$'], ['\\(','\\)']]}
+};
+</script>
+<script id="MathJax-script" src="js/mathjax/tex-svg.js"></script>
+
+</body>
+</html>
