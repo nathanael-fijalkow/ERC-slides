@@ -55,8 +55,8 @@
                     <center><img src="img/reactive-synthesis.png" width="100%"></center>
                 </div>
                 <div>
-                    <div class="box blue small" data-label="Cybersecurity">
-                    Detect security vulnerabilities in code.
+                    <div class="box blue small" data-label="Finance">
+                    Find compliance rules for transactions. 
                     </div>
                     <br/>
                     <br/>
@@ -97,31 +97,13 @@
 
     </div>
 
-    <!-- <div id="scalable-correct" class="step" data-x="1500" data-y="1500">
-        <div class="box red" data-label="The two worlds">
-            <ul>
-            <li><red>Symbolic methods</red> (logic) are <green>correct</green>: they guarantee that the synthesized program satisfies the specification. Critical <b>scaling</b> issues!</li>
-            <li><blue>Neural methods</blue> (deep learning, large language models) are <mauve>scalable</mauve>: they can handle large and complex specifications. Critical <b>correctness</b> issues!</li>
-            </ul>
-        </div>
-
-        <div class="slide_step">
-            <h3>We need both <green>correct</green> and <mauve>scalable</mauve>: <br/><b>neuro-symbolic methods</b>!</h3>
-        </div>
-
-        <br/>
-        <div class="slide_step small">
-            Related recent aspect (e.g. Navier-Stokes results): enormous <b>compute budget</b>.
-        </div>
-    </div> -->
-
     <div id="overview_intermediate" class="step unclickable" data-x="1500" data-y="900" data-scale="3">
     </div>
 
 <!-- Part 2: Reactive synthesis -->
-    <div class="part" data-x="1500" data-y="400">
+    <div class="part" data-x="1500" data-y="300">
 
-        <div id="reactive-synthesis" class="step" data-fixed="1" data-x="0" data-y="0" data-scale=".8">
+        <div id="reactive-synthesis" class="step unclickable" data-fixed="1" data-x="0" data-y="0" data-scale=".8">
             <h2>Reactive synthesis</h2>
         </div>
 
@@ -155,20 +137,6 @@
             </div>
         </div>
 
-        <!-- <div id="reactive-synthesis-open-problems" class="step" data-x="200" data-y="500" data-scale=".5">
-            <h3>Understanding the landscape</h3>
-
-            <br/>
-            Different orthogonal directions:
-            <ul>
-                <li>Complexity of the specification.</li>
-                <li>Full or partial information of the system.</li>
-                <li>Average versus worse-case scenarios (stochastic or adversarial).</li>
-            </ul>
-            <br/>
-            This yields different game models, extending each other.
-        </div> -->
-
         <div id="reactive-synthesis-parity-games" class="step" data-x="-250" data-y="500" data-scale=".5">
             <div class="box red small" data-label="Open problem">
             Since 1991: complexity of solving parity games <red>(= reactive synthesis with complex specifications)</red>. Quasipolynomial barrier for <green>discrete</green> algorithms (SODA 2019).
@@ -201,7 +169,7 @@
             </div>
             <br/>
             <div class="box green slide_step small" data-label="Impact">
-                <b>Many applications</b>: aircraft collision avoidance, autonomous driving, robot navigation, infrastructure inspection and maintenance...
+                Aircraft collision avoidance, autonomous driving, robot navigation, infrastructure inspection and maintenance...
             </div>
         </div>
 
@@ -223,15 +191,19 @@
     </div>
 
 <!-- Part 3: Logic synthesis -->
-    <div class="part" data-x="2400" data-y="400">
+    <div class="part" data-x="2400" data-y="300">
 
-        <div id="logic-synthesis" class="step" data-fixed="1" data-x="0" data-y="0" data-scale=".8">
+        <div id="logic-synthesis" class="step unclickable" data-fixed="1" data-x="0" data-y="0" data-scale=".8">
             <h2>Logic synthesis</h2>
         </div>
 
         <div id="logic-synthesis-def" class="step" data-x="-200" data-y="200" data-scale=".5">
             <div class="row">
-                <img src="img/logic-synthesis.png" width="50%"/>
+                <div>
+                    <img src="img/logic-synthesis.png"/>
+                    Solves a binary classification task from machine learning.
+                    <br/><br/>But logical formulas are <red>interpretable</red>, <blue>composable</blue>, <green>verifiable</green>.
+                </div>
                 <div>
                     <img src="img/classification.png">
                 </div>
@@ -244,7 +216,7 @@
             <div class="row">
                 <ul>
                     <li>Logic synthesis is a <blue>combinatorial search problem</blue>: we need to explore the very large space of logical formulas.</li>
-                    <li>Combinatorial search problems are "<green>embarassingly parallel</green>": search branches are independent of each other.</li>
+                    <li>Combinatorial search problems are naturally <green>parallel</green>: search branches are independent of each other.</li>
                 </ul>
                 <div>
                     <img src="img/search.png" width="50%">
@@ -263,7 +235,7 @@
         </div>
 
         <div id="logic-synthesis-challenges" class="step" data-x="-200" data-y="500" data-scale=".5">
-            We obtained significant improvements using GPU acceleration in <b>simple</b> logic synthesis domains (CAV 2024, TACAS 2026, NeurIPS 2026).
+            We obtained significant improvements using GPU acceleration in <blue>simple</blue> logic synthesis domains (CAV 2024, TACAS 2026, NeurIPS 2026).
             <br/>            
             <br/>            
             LOGOS targets <red>three new directions</red>:
@@ -300,10 +272,20 @@
     <div id="overview_intermediate" class="step unclickable" data-x="1500" data-y="900" data-scale="3">
     </div>
 
-    <div id="final" class="step" data-x="2000" data-y="1400">  
-        <img src="img/final_generated.jpeg" width="90%">
-        <red>Reactive synthesis</red> controls the feedback loop.
-        <br/><blue>Logic synthesis</blue> builds the symbolic component.
+    <div id="neuro-symbolic-title" class="step unclickable" data-fixed="1" data-x="2000" data-y="1100" data-scale=".8">
+        <h2>Neuro-symbolic synthesis</h2>
+    </div>
+
+    <div id="final" class="step" data-x="2000" data-y="1450">  
+        <img src="img/final_generated.png" width="90%">
+
+        <div class="step_slide">
+            Synergy between the three pillars:
+            <ul>
+                <li><red>Reactive synthesis</red>: feedback loop.</li>
+                <li><blue>Logic synthesis</blue>: symbolic component.</li>
+            </ul>
+        </div>
     </div>
     
     <!-- Backup slides: not part of the normal flow (data-fixed="1", so
@@ -480,9 +462,9 @@
 </div>
 
 <div id="backup-links">
-    <a href="#budget">Budget</a>
     <a href="#gantt">Timeline, hires &amp; milestones</a>
     <a href="#cv">Why me?</a>
+    <a href="#budget">Budget</a>
     <a href="#arc">ARC</a>
 </div>
 
