@@ -324,7 +324,7 @@
             </div>
             <br/>
             <div class="box mauve small" data-label="Dissemination &mdash; &euro;25K">
-            One dedicated workshop (venue &amp; catering) to gather the community around LOGOS' results.
+            Dedicated workshops (venue &amp; catering) to gather the community around LOGOS' results.
             </div>
             <br/>
             <div class="box blue small" data-label="Equipment &mdash; &euro;9K">
@@ -333,52 +333,100 @@
         </div>
 
         <div id="gantt" class="step" data-fixed="1" data-x="0" data-y="0" data-scale=".5">
-            <h3>Timeline &amp; hires</h3>
-            <br/>
+            <h3>Timeline, hires &amp; milestones</h3>
 
-            <svg viewBox="0 0 840 290" width="100%">
-                <!-- year gridlines -->
-                <line x1="190" y1="34" x2="190" y2="376" stroke="#ddd" stroke-width="1" />
-                <line x1="310" y1="34" x2="310" y2="376" stroke="#ddd" stroke-width="1" />
-                <line x1="430" y1="34" x2="430" y2="376" stroke="#ddd" stroke-width="1" />
-                <line x1="550" y1="34" x2="550" y2="376" stroke="#ddd" stroke-width="1" />
-                <line x1="670" y1="34" x2="670" y2="376" stroke="#ddd" stroke-width="1" />
-                <line x1="790" y1="34" x2="790" y2="376" stroke="#ddd" stroke-width="1" />
+            <!-- one swimlane per pillar: milestones (diamonds, hollow = decision
+                 point) above the hires (bars). Years are 140 units wide,
+                 starting at x=130. Colours match the pillars of the "Why me?" slide. -->
+            <svg viewBox="0 0 840 376" width="100%">
+                <defs>
+                    <marker id="gantt-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                        <path d="M0,0 L10,5 L0,10 z" fill="#333" />
+                    </marker>
+                </defs>
 
-                <!-- year labels -->
-                <text x="250" y="24" text-anchor="middle" font-family="PT Sans, sans-serif" font-size="15" fill="#555">Year 1</text>
-                <text x="370" y="24" text-anchor="middle" font-family="PT Sans, sans-serif" font-size="15" fill="#555">Year 2</text>
-                <text x="490" y="24" text-anchor="middle" font-family="PT Sans, sans-serif" font-size="15" fill="#555">Year 3</text>
-                <text x="610" y="24" text-anchor="middle" font-family="PT Sans, sans-serif" font-size="15" fill="#555">Year 4</text>
-                <text x="730" y="24" text-anchor="middle" font-family="PT Sans, sans-serif" font-size="15" fill="#555">Year 5</text>
+                <g font-family="PT Sans, sans-serif">
+                    <!-- year gridlines and labels -->
+                    <g stroke="#e0e0e0" stroke-width="1">
+                        <line x1="130" y1="30" x2="130" y2="372" />
+                        <line x1="270" y1="30" x2="270" y2="372" />
+                        <line x1="410" y1="30" x2="410" y2="372" />
+                        <line x1="550" y1="30" x2="550" y2="372" />
+                        <line x1="690" y1="30" x2="690" y2="372" />
+                        <line x1="830" y1="30" x2="830" y2="372" />
+                    </g>
+                    <g font-size="16" fill="#555" text-anchor="middle">
+                        <text x="200" y="20">Year 1</text>
+                        <text x="340" y="20">Year 2</text>
+                        <text x="480" y="20">Year 3</text>
+                        <text x="620" y="20">Year 4</text>
+                        <text x="760" y="20">Year 5</text>
+                    </g>
 
-                <!-- PhD student -->
-                <text x="180" y="67" text-anchor="end" font-family="PT Sans, sans-serif" font-size="15" fill="#333">PhD student &middot; Pillar 1</text>
-                <rect x="190" y="50" width="360" height="24" rx="6" fill="rgba(0,0,255,0.15)" stroke="blue" stroke-width="2" />
-                <text x="560" y="67" font-family="PT Sans, sans-serif" font-size="14" fill="blue">36 mo</text>
+                    <!-- lane separators -->
+                    <g stroke="#ccc" stroke-width="1">
+                        <line x1="0" y1="154" x2="830" y2="154" />
+                        <line x1="0" y1="282" x2="830" y2="282" />
+                    </g>
 
-                <!-- postdoc, pillar 1 -->
-                <text x="180" y="117" text-anchor="end" font-family="PT Sans, sans-serif" font-size="15" fill="#333">Postdoc &middot; Pillar 1</text>
-                <rect x="190" y="100" width="360" height="24" rx="6" fill="rgba(0,128,0,0.15)" stroke="green" stroke-width="2" />
-                <text x="560" y="117" font-family="PT Sans, sans-serif" font-size="14" fill="green">36 mo</text>
+                    <!-- pillar names -->
+                    <text x="4" y="86" font-size="18" font-weight="bold" fill="red">Pillar 1</text>
+                    <text x="4" y="106" font-size="15" fill="#555">Reactive</text>
+                    <text x="4" y="214" font-size="18" font-weight="bold" fill="green">Pillar 2</text>
+                    <text x="4" y="234" font-size="15" fill="#555">Logic</text>
+                    <text x="4" y="325" font-size="18" font-weight="bold" fill="blue">Pillar 3</text>
+                    <text x="4" y="345" font-size="15" fill="#555">Neuro-symbolic</text>
 
-                <!-- postdoc, pillar 2 -->
-                <text x="180" y="167" text-anchor="end" font-family="PT Sans, sans-serif" font-size="15" fill="#333">Postdoc &middot; Pillar 2</text>
-                <rect x="310" y="150" width="360" height="24" rx="6" fill="rgba(255,0,0,0.12)" stroke="red" stroke-width="2" />
-                <text x="680" y="167" font-family="PT Sans, sans-serif" font-size="14" fill="red">36 mo</text>
+                    <!-- milestones -->
+                    <g fill="#333">
+                        <polygon points="235,40.5 242.5,48 235,55.5 227.5,48" />
+                        <polygon points="410,40.5 417.5,48 410,55.5 402.5,48" />
+                        <polygon points="410,168.5 417.5,176 410,183.5 402.5,176" />
+                        <polygon points="550,168.5 557.5,176 550,183.5 542.5,176" />
+                        <polygon points="690,168.5 697.5,176 690,183.5 682.5,176" />
+                        <polygon points="550,296.5 557.5,304 550,311.5 542.5,304" />
+                        <polygon points="690,296.5 697.5,304 690,311.5 682.5,304" />
+                        <polygon points="830,296.5 837.5,304 830,311.5 822.5,304" />
+                    </g>
+                    <g font-size="16" fill="#333" text-anchor="middle">
+                        <text x="235" y="74">Restricted classes</text>
+                        <text x="410" y="74">Convex strategies</text>
+                        <text x="410" y="202">STL &amp; MBA learners</text>
+                        <text x="550" y="202">IWLS entry</text>
+                        <text x="690" y="202">10&times; on 3 benchmarks</text>
+                        <text x="550" y="330">GPU verifier</text>
+                        <text x="690" y="330">RL engine</text>
+                        <text x="838" y="330" text-anchor="end">ARC Prize</text>
+                    </g>
 
-                <!-- research engineer -->
-                <text x="190" y="217" text-anchor="end" font-family="PT Sans, sans-serif" font-size="15" fill="#333">Research engineer &middot; Pillar 2/3</text>
-                <rect x="430" y="200" width="360" height="24" rx="6" fill="rgba(255,165,0,0.18)" stroke="orange" stroke-width="2" />
-                <text x="800" y="217" font-family="PT Sans, sans-serif" font-size="14" fill="orange">36 mo</text>
+                    <!-- hires -->
+                    <g stroke-width="2" font-size="15">
+                        <rect x="130" y="84" width="420" height="28" rx="6" fill="rgba(255,0,0,0.10)" stroke="red" />
+                        <text x="140" y="103" fill="#c00000">PhD student</text>
+                        <text x="540" y="103" fill="#c00000" text-anchor="end">36 mo</text>
 
-                <!-- postdoc, pillar 3 -->
-                <text x="180" y="267" text-anchor="end" font-family="PT Sans, sans-serif" font-size="15" fill="#333">Postdoc &middot; Pillar 3</text>
-                <rect x="550" y="250" width="240" height="24" rx="6" fill="rgba(224,176,255,0.35)" stroke="#E0B0FF" stroke-width="2" />
-                <text x="800" y="267" font-family="PT Sans, sans-serif" font-size="14" fill="#9b6fc4">24 mo</text>
+                        <rect x="130" y="118" width="420" height="28" rx="6" fill="rgba(255,0,0,0.10)" stroke="red" />
+                        <text x="140" y="137" fill="#c00000">Postdoc</text>
+                        <text x="540" y="137" fill="#c00000" text-anchor="end">36 mo</text>
+
+                        <rect x="270" y="212" width="420" height="28" rx="6" fill="rgba(0,128,0,0.12)" stroke="green" />
+                        <text x="280" y="231" fill="#006400">Postdoc</text>
+                        <text x="680" y="231" fill="#006400" text-anchor="end">36 mo</text>
+
+                        <rect x="410" y="246" width="420" height="28" rx="6" fill="rgba(255,165,0,0.18)" stroke="orange" />
+                        <text x="420" y="265" fill="#b36200">Research engineer &middot; Pillars 2 &amp; 3</text>
+                        <text x="820" y="265" fill="#b36200" text-anchor="end">36 mo</text>
+
+                        <rect x="550" y="340" width="280" height="28" rx="6" fill="rgba(0,0,255,0.10)" stroke="blue" />
+                        <text x="560" y="359" fill="#0000c0">Postdoc</text>
+                        <text x="820" y="359" fill="#0000c0" text-anchor="end">24 mo</text>
+                    </g>
+
+                    <!-- the GPU verifier of Pillar 3 builds on Pillar 2 -->
+                    <path d="M 470 275 C 470 300, 500 304, 538 304" fill="none" stroke="#333" stroke-width="1.5" marker-end="url(#gantt-arrow)" />
+                </g>
             </svg>
-            <br/>
-            <center class="small">Track record: 6 PhD students (all defended) &middot; 5 postdocs &middot; 3 research engineers &middot; 23 interns.</center>
+            <center class="small">Track record: 8 PhD students (6 defended) &middot; 5 postdocs &middot; 3 research engineers &middot; 23 interns.</center>
         </div>
 
         <div id="cv" class="step" data-fixed="1" data-x="700" data-y="0" data-scale=".5">
@@ -433,7 +481,7 @@
 
 <div id="backup-links">
     <a href="#budget">Budget</a>
-    <a href="#gantt">Timeline &amp; hires</a>
+    <a href="#gantt">Timeline, hires &amp; milestones</a>
     <a href="#cv">Why me?</a>
     <a href="#arc">ARC</a>
 </div>
